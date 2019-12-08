@@ -1,0 +1,22 @@
+@font-face {
+font-family: 'Azonix Regular';
+font-style: normal;
+font-weight: normal;
+src: local('../fonts/Azonix Regular'), url('../fonts/Azonix.woff') format('woff');
+}
+
+
+h1 {
+    font-family:'Azonix Regular';
+    font-size:80px;
+    color:#005493;
+}
+
+h2 {
+    font-family:'Azonix Regular';
+}
+
+.btn-primary {
+    background-color: #005493;
+    border-color: #005493;
+}
