@@ -18,8 +18,11 @@ from django.urls import path
 from blueweb import views
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', views.home),
     path('quote/', views.quote),
     path('shows/', views.shows),
+    path('music/', views.music),
+    path('about/', views.about),
+    path('blog/<int:post_id>/<slug:post_slug>/', views.post),
 ]

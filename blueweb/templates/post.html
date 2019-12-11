@@ -1,0 +1,12 @@
+{% extends "secondary.html" %}
+
+{% block page-title %}{{ post.title }}{% endblock page-title %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <p class="text-muted">{{ post.posted }}</p>
+        {{ post.body|safe }}
+    </div>
+</div>
+{% endblock content %}

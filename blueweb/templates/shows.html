@@ -2,3 +2,18 @@
 
 
 {% block page-title %}Shows{% endblock page-title %}
+
+{% block content %}
+{% for show in shows %}
+<div class="row">
+    <div class="col">
+        <h2>{{ show.venue }}</h2>
+        <h4>{{ show.when }}</h4>
+        {% if show.notes %}
+        <p>{{ show.notes }}</p>
+        {% endif %}
+        <hr/>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}
