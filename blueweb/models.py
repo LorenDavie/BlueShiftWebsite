@@ -25,13 +25,17 @@ class Song(models.Model):
     """ 
     A song.
     """
-    releases = models.ManyToManyField(Release, related_name='songs')
+    release = models.ForeignKey(Release, related_name='songs', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     lyrics = models.TextField(blank=True, null=True)
     snippet = models.CharField(blank=True, null=True, max_length=500)
+    ordering = models.IntegerField(default=0)
     
     def __str__(self):
         return self.title
+    
+    class Meta:
+        ordering = ['ordering']
 
 class BlogPost(models.Model):
     """ 
