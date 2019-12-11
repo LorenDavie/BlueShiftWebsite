@@ -25,4 +25,5 @@ urlpatterns = [
     path('music/', views.music),
     path('about/', views.about),
     path('blog/<int:post_id>/<slug:post_slug>/', views.post),
+    path('calendar/<int:show_id>/', views.show_calendar),
 ]

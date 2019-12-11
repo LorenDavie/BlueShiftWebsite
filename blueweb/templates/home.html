@@ -10,6 +10,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 
     <title>Blue Shift</title>
   </head>
@@ -19,7 +21,7 @@
             <div class="col text-center">
                 <p><img src="{% static 'images/logo.png' %}" class="img-fluid"></p>
                 <h1>Blue Shift</h1>
-                <p class="text-muted"><em id="quote"><img src="{% static 'images/ajax-loader.gif' %}"></em></p>
+                <p class="text-muted"><em id="quote"></em></p>
                 <div class="btn-group" role="group">
                   <a href="/" class="btn btn-primary">Home</a>
                   <a href="/shows/" class="btn btn-secondary">Shows</a>
@@ -37,7 +39,7 @@
                     <div class="media-body">
                         <h2 class="mt-0"><a href="/blog/{{ post.pk }}/{{ post.slug }}/">{{ post.title }}</a></h2>
                         <p class="text-muted">{{ post.posted }}</p>
-                        {{ post.body|safe }}
+                        {{ post.body|safe|truncatewords_html:50 }}
                     </div>
                 </div>
             </div>

@@ -7,8 +7,17 @@
 {% for show in shows %}
 <div class="row">
     <div class="col">
+        <div class="float-right">
+            <a href="/calendar/{{ show.pk }}/" class="btn btn-sm btn-primary">Add To Calendar</a>
+        </div>
         <h2>{{ show.venue }}</h2>
         <h4>{{ show.when }}</h4>
+        {% if show.venue.address %}
+        <p class="text-muted">{{ show.venue.address }}</p>
+        {% endif %}
+        {% if show.venue.link %}
+        <p><a href="{{ show.venue.link }}" target="_blank">Website</a></p>
+        {% endif %}
         {% if show.notes %}
         <p>{{ show.notes }}</p>
         {% endif %}

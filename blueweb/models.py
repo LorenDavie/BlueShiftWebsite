@@ -65,6 +65,18 @@ class Venue(models.Model):
     def __str__(self):
         return self.name
 
+
+class ShowManager(models.Manager):
+    """ 
+    Manager for shows.
+    """
+    def upcoming_shows(self):
+        """ 
+        Gets shows that haven't already happened.
+        """
+        now = datetime.datetime.now()
+        return self.filter(when__gt=now)
+
 class Show(models.Model):
     """ 
     A live show.
@@ -73,8 +85,10 @@ class Show(models.Model):
     when = models.DateTimeField()
     notes = models.TextField(blank=True)
     
+    objects = ShowManager()
+    
     def __str__(self):
         return '%s %s  at %s' % (self.when.strftime('%I%p'), self.when.strftime('%A, %B %d %Y'), str(self.venue))
     
     class Meta:
-        ordering = ('-when',)
+        ordering = ('when',)

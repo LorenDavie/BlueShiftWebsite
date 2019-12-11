@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from blueweb import quotes
 from blueweb.models import BlogPost, Release, Show
+from blueweb.cal import get_cal_for_show
 
 def home(request):
     """ 
@@ -23,7 +24,7 @@ def shows(request):
     """ 
     Show calendar.
     """
-    shows = Show.objects.all()
+    shows = Show.objects.upcoming_shows()
     return render(request, 'shows.html', context={'location':'shows', 'shows':shows})
 
 def music(request):
@@ -45,3 +46,11 @@ def post(request, post_id, post_slug):
     """
     post = BlogPost.objects.get(pk=post_id)
     return render(request, 'post.html', context={'post':post})
+
+def show_calendar(request, show_id):
+    """ 
+    Gets an iCalendar event for the specified show.
+    """
+    show = Show.objects.get(pk=show_id)
+    cal = get_cal_for_show(show)
+    return HttpResponse(str(cal), content_type='text/calendar')
