@@ -16,7 +16,12 @@
             {% for song in release.songs.all %}
                 <tr>
                     <td><strong>{{ song }}</strong></td>
-                    <td><a href="#" class="btn btn-sm btn-outline-primary show-lyric-btn" data-song-id="{{ song.pk }}">Lyrics</a></td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-outline-primary show-lyric-btn" data-song-id="{{ song.pk }}">Lyrics</a>
+                        {% if song.hosting %}
+                        <a href="{{ song.link }}" target="_blank" class="btn btn-sm btn-outline-info">Listen</a>
+                        {% endif %}
+                    </td>
                 </tr>
                 <tr class="d-none lyric-row" id="{{ song.pk }}-lyric-row">
                     <td colspan="2">

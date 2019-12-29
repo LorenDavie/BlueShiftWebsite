@@ -21,6 +21,11 @@ class Release(models.Model):
     class Meta:
         ordering = ('-release_date',)
 
+song_hosting_choices = (
+    ('soundcloud', 'SoundCloud'),
+    ('bandcamp', 'BandCamp'),
+)
+
 class Song(models.Model):
     """ 
     A song.
@@ -30,6 +35,8 @@ class Song(models.Model):
     lyrics = models.TextField(blank=True, null=True)
     snippet = models.CharField(blank=True, null=True, max_length=500)
     ordering = models.IntegerField(default=0)
+    link = models.URLField(null=True, blank=True)
+    hosting = models.CharField(blank=True, choices=song_hosting_choices, max_length=100)
     
     def __str__(self):
         return self.title
