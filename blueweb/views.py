@@ -4,7 +4,7 @@ Views for blue web.
 from django.shortcuts import render
 from django.http import HttpResponse
 from blueweb import quotes
-from blueweb.models import BlogPost, Release, Show
+from blueweb.models import BlogPost, Release, Show, Song
 from blueweb.cal import get_cal_for_show
 
 def home(request):
@@ -18,7 +18,12 @@ def quote(request):
     """ 
     Gets a random quote.
     """
-    return HttpResponse(quotes.random_quote())
+    if Song.objects.all().exists():
+        song = Song.objects.all().order_by('?').first()
+        if song.snippet:
+            return HttpResponse(song.snippet)
+    
+    return HttpResponse('')
 
 def shows(request):
     """ 
