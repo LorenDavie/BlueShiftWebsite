@@ -9,7 +9,7 @@ src: local('../fonts/Azonix Regular'), url('../fonts/Azonix.woff') format('woff'
 h1 {
     font-family:'Azonix Regular';
     font-size:80px;
-    color:#005493;
+    color:#FFFFFF;
 }
 
 h2 {
@@ -27,4 +27,16 @@ a {
 
 pre {
     font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.splash {
+    background: url('../images/band3.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+
+.text-quote {
+    color:white;
 }
