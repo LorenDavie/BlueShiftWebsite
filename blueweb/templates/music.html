@@ -1,43 +1,55 @@
 {% extends "secondary.html" %}
 
+{% load static %}
+
 {% block page-title %}Music{% endblock page-title %}
 
 {% block content %}
-{% for release in releases %}
 <div class="row">
     <div class="col">
-        <h2>{{ release.title }}</h2>
-        <p class="text-muted"><em>{{ release.release_date }}</em></p>
-        {% if release.notes %}
-        <p>{{ release.notes }}</p>
-        {% endif %}
-        {% if release.songs.exists %}
-        <table class="table">
-            {% for song in release.songs.all %}
-                <tr>
-                    <td><strong>{{ song }}</strong></td>
-                    <td>
-                        <a href="#" class="btn btn-sm btn-outline-primary show-lyric-btn" data-song-id="{{ song.pk }}">Lyrics</a>
-                        {% if song.hosting %}
-                        <a href="{{ song.link }}" target="_blank" class="btn btn-sm btn-outline-info">Listen</a>
-                        {% endif %}
-                    </td>
-                </tr>
-                <tr class="d-none lyric-row" id="{{ song.pk }}-lyric-row">
-                    <td colspan="2">
-                        <div class="alert alert-light">
-                            <pre>{{ song.lyrics}}</pre>
-                        </div>
-                    </td>
-                </tr>
+        {# <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> #}
+        <div class="container">
+            {% for release in releases %}
+            <div class="row mt-3">
+                <div class="col">
+                    <h2>{{ release.title }}</h2>
+                    <p class="text-muted"><em>{{ release.release_date }}</em></p>
+                    {% if release.notes %}
+                    <p>{{ release.notes }}</p>
+                    {% endif %}
+                    {% if release.songs.exists %}
+                    <table class="table">
+                        {% for song in release.songs.all %}
+                            <tr>
+                                <td><strong>{{ song }}</strong></td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-outline-primary show-lyric-btn" data-song-id="{{ song.pk }}">Lyrics</a>
+                                    {% if song.hosting %}
+                                    <a href="{{ song.link }}" target="_blank" class="btn btn-sm btn-outline-info">Listen</a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr class="d-none lyric-row" id="{{ song.pk }}-lyric-row">
+                                <td colspan="2">
+                                    <div class="alert alert-light">
+                                        <pre>{{ song.lyrics}}</pre>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    {% else %}
+                    <p class="text-muted">No songs have been defined for this release yet.</p>
+                    {% endif %}
+                </div>
+            </div>
             {% endfor %}
-        </table>
-        {% else %}
-        <p class="text-muted">No songs have been defined for this release yet.</p>
-        {% endif %}
+        </div>
+    </div>
+    <div class="col">
+        <img src="{% static 'images/band2.jpg' %}" class="img-fluid float-right">
     </div>
 </div>
-{% endfor %}
 {% endblock content %}
 
 {% block bodyscripts %}
