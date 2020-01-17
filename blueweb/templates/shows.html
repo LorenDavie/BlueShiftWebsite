@@ -1,9 +1,15 @@
 {% extends "secondary.html" %}
 
+{% load static %}
 
 {% block page-title %}Shows{% endblock page-title %}
 
 {% block content %}
+<div class="row mb-3">
+    <div class="col">
+        <img src="{% static 'images/band4.jpg' %}" class="img-fluid">
+    </div>
+</div>
 {% for show in shows %}
 <div class="row">
     <div class="col">

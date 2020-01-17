@@ -25,13 +25,13 @@
     <div class="container">
         <div class="row mt-3">
             <div class="col">
-                <div class="btn-group float-right" role="group">
-                  <a href="/" class="btn btn-secondary">Home</a>
-                  <a href="/shows/" class="btn {% ifequal location 'shows' %}btn-primary{% else %}btn-secondary{% endifequal %}">Shows</a>
-                  <a href="/music/" class="btn {% ifequal location 'music' %}btn-primary{% else %}btn-secondary{% endifequal %}">Music</a>
-                  <a href="/about/" class="btn {% ifequal location 'about' %}btn-primary{% else %}btn-secondary{% endifequal %}">About</a>
-                </div>
-                <h2><a href="/"><img src="{% static 'images/logo-sm.png' %}" class="img-fluid"></a> {% block page-title %}Blue Shift{% endblock page-title %}</h2>
+                <h4 class="float-right nav" role="group">
+                  <a href="/" class="mr-3">Home</a>
+                  <a href="/shows/" class="mr-3">Shows</a>
+                  <a href="/music/" class="mr-3">Music</a>
+                  <a href="/about/" class="mr-0">About</a>
+                </h2>
+                <h2><a href="/" class="nohover"><img src="{% static 'images/logo-sm.png' %}" class="img-fluid"></a> {% block page-title %}Blue Shift{% endblock page-title %}</h2>
                 <hr class="mt-5 mb-5"/>
             </div>
         </div>

@@ -9,10 +9,28 @@ src: local('../fonts/Azonix Regular'), url('../fonts/Azonix.woff') format('woff'
 h1 {
     font-family:'Azonix Regular';
     font-size:80px;
-    color:#FFFFFF;
+    color:white;
 }
 
 h2 {
+    font-family:'Azonix Regular';
+}
+
+h2.splash {
+    color:white;
+}
+
+h2.splash a {
+    color:white;
+}
+
+h2.splash a:hover {
+    color:black;
+    background-color:white;
+    text-decoration:none;
+}
+
+h4.nav {
     font-family:'Azonix Regular';
 }
 
@@ -23,6 +41,17 @@ h2 {
 
 a {
     color: #005493;
+}
+
+a:hover {
+    color:white;
+    background-color:#005493;
+    text-decoration:none;
+}
+
+a.nohover:hover {
+    color: #005493;
+    background-color:#FFFFFF;
 }
 
 pre {
