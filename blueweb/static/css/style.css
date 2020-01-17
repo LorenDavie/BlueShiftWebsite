@@ -49,6 +49,12 @@ a:hover {
     text-decoration:none;
 }
 
+a.here {
+    color:white;
+    background-color:#005493;
+    text-decoration:none;
+}
+
 a.nohover:hover {
     color: #005493;
     background-color:#FFFFFF;

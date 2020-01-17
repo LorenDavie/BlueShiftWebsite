@@ -27,9 +27,9 @@
             <div class="col">
                 <h4 class="float-right nav" role="group">
                   <a href="/" class="mr-3">Home</a>
-                  <a href="/shows/" class="mr-3">Shows</a>
-                  <a href="/music/" class="mr-3">Music</a>
-                  <a href="/about/" class="mr-0">About</a>
+                  <a href="/shows/" class="mr-3 {% ifequal location 'shows' %}here{% endifequal %}">Shows</a>
+                  <a href="/music/" class="mr-3 {% ifequal location 'music' %}here{% endifequal %}">Music</a>
+                  <a href="/about/" class="mr-0 {% ifequal location 'about' %}here{% endifequal %}">About</a>
                 </h2>
                 <h2><a href="/" class="nohover"><img src="{% static 'images/logo-sm.png' %}" class="img-fluid"></a> {% block page-title %}Blue Shift{% endblock page-title %}</h2>
                 <hr class="mt-5 mb-5"/>
