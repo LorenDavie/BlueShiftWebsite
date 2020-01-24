@@ -11,19 +11,7 @@ def home(request):
     """ 
     Home page.
     """
-    posts = BlogPost.objects.all()
-    return render(request, 'home.html', context={'posts':posts})
-
-def quote(request):
-    """ 
-    Gets a random quote.
-    """
-    if Song.objects.all().exists():
-        song = Song.objects.all().order_by('?').first()
-        if song.snippet:
-            return HttpResponse(song.snippet)
-    
-    return HttpResponse('')
+    return render(request, 'home.html')
 
 def shows(request):
     """ 
@@ -38,6 +26,13 @@ def music(request):
     """
     releases = Release.objects.all()
     return render(request, 'music.html', context={'location':'music', 'releases':releases})
+
+def news(request):
+    """ 
+    News of the band.
+    """
+    posts = BlogPost.objects.all()
+    return render(request, 'news.html', context={'location':'news', 'posts':posts})
 
 def about(request):
     """ 

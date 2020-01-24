@@ -20,9 +20,9 @@ from blueweb import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
-    path('quote/', views.quote),
     path('shows/', views.shows),
     path('music/', views.music),
+    path('news/', views.news),
     path('about/', views.about),
     path('blog/<int:post_id>/<slug:post_slug>/', views.post),
     path('calendar/<int:show_id>/', views.show_calendar),
