@@ -93,3 +93,17 @@ pre {
 .footer {
     background-color:#DDDDDD;
 }
+
+.social {
+    color:white;
+}
+
+.social a {
+    color:white;
+}
+
+.social a:hover {
+    color:black;
+    background-color:white;
+    text-decoration:none;
+}
