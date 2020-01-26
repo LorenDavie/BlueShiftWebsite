@@ -1,8 +1,8 @@
 @font-face {
-font-family: 'Azonix Regular';
+font-family: 'Azonix-Regular';
 font-style: normal;
 font-weight: normal;
-src: local('../fonts/Azonix Regular'),
+src:
 url('../fonts/Azonix.woff') format('woff'),
 url('../fonts/Azonix.woff2') format('woff2'),
 url('../fonts/Azonix.otf') format('opentype');
@@ -10,13 +10,13 @@ url('../fonts/Azonix.otf') format('opentype');
 
 
 h1 {
-    font-family:'Azonix Regular';
+    font-family:'Azonix-Regular';
     font-size:80px;
     color:white;
 }
 
 h2 {
-    font-family:'Azonix Regular';
+    font-family:'Azonix-Regular';
 }
 
 h2.splash {
@@ -44,7 +44,7 @@ h2.splash a.cta:hover {
 }
 
 h4.nav {
-    font-family:'Azonix Regular';
+    font-family:'Azonix-Regular';
 }
 
 .btn-primary {
