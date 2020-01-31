@@ -21,7 +21,12 @@
                     <table class="table">
                         {% for song in release.songs.all %}
                             <tr>
-                                <td><strong>{{ song }}</strong></td>
+                                <td>
+                                    <strong>{{ song }}</strong>
+                                    {% if song.snippet %}
+                                    <br><small class="text-muted">{{ song.snippet }}</small>
+                                    {% endif %}
+                                </td>
                                 <td>
                                     <a href="#" class="btn btn-sm btn-outline-primary show-lyric-btn" data-song-id="{{ song.pk }}">Lyrics</a>
                                     {% if song.hosting %}
