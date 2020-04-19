@@ -28,7 +28,7 @@
                                     {% endif %}
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-outline-primary show-lyric-btn" data-song-id="{{ song.pk }}">Lyrics</a>
+                                    {% if song.lyrics %}<a href="#" class="btn btn-sm btn-outline-primary show-lyric-btn" data-song-id="{{ song.pk }}">Lyrics</a>{% endif %}
                                     {% if song.hosting %}
                                     <a href="{{ song.link }}" target="_blank" class="btn btn-sm btn-outline-info">Listen</a>
                                     {% endif %}
