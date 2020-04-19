@@ -24,6 +24,7 @@ class Release(models.Model):
 song_hosting_choices = (
     ('soundcloud', 'SoundCloud'),
     ('bandcamp', 'BandCamp'),
+    ('youtube', 'YouTube')
 )
 
 class Song(models.Model):
