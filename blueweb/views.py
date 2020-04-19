@@ -11,7 +11,8 @@ def home(request):
     """ 
     Home page.
     """
-    return render(request, 'home.html')
+    headline = BlogPost.objects.first() if BlogPost.objects.all().exists() else None
+    return render(request, 'home.html',context={'headline':headline})
 
 def shows(request):
     """ 

@@ -8,6 +8,14 @@ url('../fonts/Azonix.woff2') format('woff2'),
 url('../fonts/Azonix.otf') format('opentype');
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 100px; 
+}
 
 h1 {
     font-family:'Azonix-Regular';
@@ -109,4 +117,17 @@ pre {
     color:black;
     background-color:white;
     text-decoration:none;
+}
+
+.news {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  color:white;
+}
+
+.branded {
+    font-family:'Azonix-Regular';
 }
