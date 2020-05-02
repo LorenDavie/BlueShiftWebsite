@@ -54,6 +54,7 @@ class BlogPost(models.Model):
     link = models.URLField(null=True, blank=True)
     body = models.TextField(blank=True)
     posted = models.DateTimeField(blank=True, default=datetime.datetime.now)
+    direct_link = models.BooleanField(default=False)
     
     def save(self, *args, **kwargs):
         if self.slug is None and self.title is not None:
