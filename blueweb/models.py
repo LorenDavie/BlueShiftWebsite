@@ -4,6 +4,7 @@ Models for Blue Shift website.
 from django.db import models
 import datetime
 from django.utils.text import slugify
+from blueweb.utils import get_local_now, localize_dt
 
 
 class Release(models.Model):
@@ -14,6 +15,14 @@ class Release(models.Model):
     release_date = models.DateField()
     cover_art = models.URLField(blank=True, null=True)
     notes = models.TextField(blank=True, null=True)
+    hyperfollow = models.URLField(blank=True, null=True)
+    
+    def future_release(self):
+        """ 
+        Checks if this release is in the future.
+        """
+        release_datetime = localize_dt(datetime.datetime(self.release_date.year, self.release_date.month, self.release_date.day))
+        return release_datetime > get_local_now()
     
     def __str__(self):
         return self.title
