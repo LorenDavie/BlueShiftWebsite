@@ -2,9 +2,9 @@
 Views for blue web.
 """
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from blueweb import quotes
-from blueweb.models import BlogPost, Release, Show, Song
+from blueweb.models import BlogPost, Release, Show, Song, HyperfollowHotlink
 from blueweb.cal import get_cal_for_show
 
 def home(request):
@@ -55,3 +55,17 @@ def show_calendar(request, show_id):
     show = Show.objects.get(pk=show_id)
     cal = get_cal_for_show(show)
     return HttpResponse(str(cal), content_type='text/calendar')
+
+def hotlink(request, slug):
+    """ 
+    Directly redirects to hyperfollow page for associated release.
+    """
+    try:
+        hl = HyperfollowHotlink.objects.get(slug=slug)
+        if not hl.release.hyperfollow:
+            raise Http404
+        
+        return HttpResponseRedirect(hl.release.hyperfollow)
+    
+    except HypefollowHotlink.DoesNotExist:
+        raise Http404

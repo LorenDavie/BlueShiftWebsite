@@ -114,3 +114,13 @@ class Show(models.Model):
     
     class Meta:
         ordering = ('when',)
+
+class HyperfollowHotlink(models.Model):
+    """ 
+    A redirect to a hyperfollow page.
+    """
+    release = models.OneToOneField(Release, related_name="hotlink", on_delete=models.CASCADE)
+    slug = models.SlugField(unique=True)
+    
+    def __str__(self):
+        return f"{self.slug} ({self.release})"
