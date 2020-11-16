@@ -65,6 +65,8 @@ def hotlink(request, slug):
         if not hl.release.hyperfollow:
             raise Http404
         
+        hl.count += 1
+        hl.save()
         return HttpResponseRedirect(hl.release.hyperfollow)
     
     except HypefollowHotlink.DoesNotExist:

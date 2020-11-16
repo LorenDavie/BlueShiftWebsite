@@ -121,6 +121,7 @@ class HyperfollowHotlink(models.Model):
     """
     release = models.OneToOneField(Release, related_name="hotlink", on_delete=models.CASCADE)
     slug = models.SlugField(unique=True)
+    count = models.IntegerField(default=0)
     
     def __str__(self):
         return f"{self.slug} ({self.release})"
