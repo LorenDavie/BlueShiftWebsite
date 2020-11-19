@@ -30,7 +30,7 @@
                 <div class="float-right">
                     <h4 class="nav" role="group">
                       <a href="/" class="mr-3">Home</a>
-                      <a href="https://patreon.com/blueshiftband" target="_blank" class="cta mr-3">Subscribe</a>
+                      <a href="#" class="cta mr-3" id="subscribe-link">Subscribe</a>
                       <a href="/shows/" class="mr-3 {% ifequal location 'shows' %}here{% endifequal %}">Shows</a>
                       <a href="/music/" class="mr-3 {% ifequal location 'music' %}here{% endifequal %}">Music</a>
                       <a href="/news/" class="mr-3 {% ifequal location 'news' %}here{% endifequal %}">News</a>
@@ -75,6 +75,7 @@
             $('#quote').load('/quote/');
         });
     </script>
+    {% include 'subscribe_js.html' %}
     {% block bodyscripts %}{% endblock bodyscripts %}
   </body>
 </html>

@@ -1,0 +1,11 @@
+<div id="subscribe-panel" class="hidden">
+    {% include 'chimp.html' %}
+</div>
+<script>
+    $(function(){
+        $('#subscribe-link').click(function(e){
+            $('#subscribe-panel').fadeIn();
+            return false; 
+        });
+    });
+</script>

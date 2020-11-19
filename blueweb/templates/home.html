@@ -30,7 +30,7 @@
             <div class="col text-center">
                 <h1>Blue<img src="{% static 'images/logo-white.png' %}" class="ml-3 mr-3">Shift</h1>
                 <h2 class="mt-3 splash">
-                   <a href="https://patreon.com/blueshiftband" target="_blank" class="cta mr-3">Subscribe</a> <a href="/shows/" class="mr-3">Shows</a> <a href="/music/" class="mr-3">Music</a> <a href="/news/" class="mr-3">News</a> <a href="/about/" class="mr-0">About</a>
+                   <a href="#" class="cta mr-3" id="subscribe-link">Subscribe</a> <a href="/shows/" class="mr-3">Shows</a> <a href="/music/" class="mr-3">Music</a> <a href="/news/" class="mr-3">News</a> <a href="/about/" class="mr-0">About</a>
                 </h2>
                 <h3 class="social">
                     <a href="https://www.youtube.com/channel/UCAgBPpJaiKFnED-gTrbYPaA" target="_blank"><span class="icon-social-youtube"></span></a>
@@ -64,5 +64,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    {% include 'subscribe_js.html' %}
   </body>
 </html>
