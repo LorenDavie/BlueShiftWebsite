@@ -145,4 +145,5 @@ pre {
     left:0px;
     top:0px;
     color:white;
+    overflow:auto;
 }
