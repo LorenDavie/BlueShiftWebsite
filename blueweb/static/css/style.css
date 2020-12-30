@@ -244,7 +244,6 @@ pre {
   opacity: 0;
   filter: alpha(opacity=0);
   color: #fff;
-  text-transform: uppercase;
   background-color: rgba(0,0,0,0.5);
 }
 
