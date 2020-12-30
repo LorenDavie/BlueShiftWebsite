@@ -5,38 +5,32 @@
 {% block page-title %}Music{% endblock page-title %}
 
 {% block content %}
-<div class="row">
-    <div class="col">
-        <img src="{% static 'images/band5.jpg' %}" class="img-fluid mb-3 ml-0 mr-0">
-        <div class="container mb-3">
-            {% for release in releases %}
-            {% if forloop.counter|add:2|divisibleby:3 %}
-            <div class="row">
+{% for release in releases %}
+{% if forloop.counter|add:2|divisibleby:3 %}
+<div class="row {% if forloop.first %}mt-3{% endif %}">
+{% endif %}
+    <div class="col p-0">
+        <div class="hovereffect">
+            {% if release.cover_art %}
+            <img class="cover-art" src="{% static 'releases/'|add:release.cover_art %}">
+            {% else %}
+            <img class="cover-art" src="{% static 'images/logo.png' %}">
             {% endif %}
-                <div class="col p-0">
-                    <div class="hovereffect">
-                        {% if release.cover_art %}
-                        <img class="cover-art" src="{% static 'releases/'|add:release.cover_art %}">
-                        {% else %}
-                        <img class="cover-art" src="{% static 'images/logo.png' %}">
-                        {% endif %}
-                        <div class="overlay">
-                           <h2>{{ release.title }}</h2>
-                           <p class="notes mt-3"><em>{{ release.release_date }}</em></p>
-                           {% if release.notes %}
-                           <p class="notes"><em>{{ release.notes }}</em></p>
-                           {% endif %}
-                           <a class="info" href="{{ release.hyperfollow }}"><strong>Check It Out</strong></a>
-                        </div>
-                    </div>
-                </div>
-            {% if forloop.counter|divisibleby:3 %}
+            <div class="overlay">
+               <h2>{{ release.title }}</h2>
+               <p class="notes mt-3"><em>{{ release.release_date }}</em></p>
+               {% if release.notes %}
+               <p class="notes"><em>{{ release.notes }}</em></p>
+               {% endif %}
+               <a class="info" href="{{ release.hyperfollow }}"><strong>Check It Out</strong></a>
             </div>
-            {% endif %}
-            {% endfor %}
         </div>
     </div>
+{% if forloop.counter|divisibleby:3 %}
 </div>
+{% endif %}
+{% endfor %}
+<div class="row mb-3"></div>
 {% endblock content %}
 
 {% block bodyscripts %}
