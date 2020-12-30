@@ -7,50 +7,32 @@
 {% block content %}
 <div class="row">
     <div class="col">
-        <div class="container">
-            <img src="{% static 'images/band2.jpg' %}" class="img-fluid">
+        <img src="{% static 'images/band5.jpg' %}" class="img-fluid mb-3 ml-0 mr-0">
+        <div class="container mb-3">
             {% for release in releases %}
-            <div class="row mt-3">
-                <div class="col">
-                    <h2>{{ release.title }}</h2>
-                    <p class="text-muted"><em>{{ release.release_date }}</em></p>
-                    {% if release.hyperfollow %}
-                    <p><a href="{{ release.hyperfollow }}" class="btn btn-outline-primary">{% if release.future_release %}Pre-Order{% else %}Buy{% endif %}</a></p>
-                    {% endif %}
-                    {% if release.notes %}
-                    <p>{{ release.notes }}</p>
-                    {% endif %}
-                    {% if release.songs.exists %}
-                    <table class="table">
-                        {% for song in release.songs.all %}
-                            <tr>
-                                <td>
-                                    <strong>{{ song }}</strong>
-                                    {% if song.snippet %}
-                                    <br><small class="text-muted">{{ song.snippet }}</small>
-                                    {% endif %}
-                                </td>
-                                <td>
-                                    {% if song.lyrics %}<a href="#" class="btn btn-sm btn-outline-primary show-lyric-btn" data-song-id="{{ song.pk }}">Lyrics</a>{% endif %}
-                                    {% if song.hosting %}
-                                    <a href="{{ song.link }}" target="_blank" class="btn btn-sm btn-outline-info">Listen</a>
-                                    {% endif %}
-                                </td>
-                            </tr>
-                            <tr class="d-none lyric-row" id="{{ song.pk }}-lyric-row">
-                                <td colspan="2">
-                                    <div class="alert alert-light">
-                                        <pre>{{ song.lyrics}}</pre>
-                                    </div>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                    {% else %}
-                    <p class="text-muted">No songs have been defined for this release yet.</p>
-                    {% endif %}
+            {% if forloop.counter|add:2|divisibleby:3 %}
+            <div class="row">
+            {% endif %}
+                <div class="col p-0">
+                    <div class="hovereffect">
+                        {% if release.cover_art %}
+                        <img class="cover-art" src="{% static 'releases/'|add:release.cover_art %}">
+                        {% else %}
+                        <img class="cover-art" src="{% static 'images/logo.png' %}">
+                        {% endif %}
+                        <div class="overlay">
+                           <h2>{{ release.title }}</h2>
+                           <p class="notes mt-3"><em>{{ release.release_date }}</em></p>
+                           {% if release.notes %}
+                           <p class="notes"><em>{{ release.notes }}</em></p>
+                           {% endif %}
+                           <a class="info" href="{{ release.hyperfollow }}"><strong>Check It Out</strong></a>
+                        </div>
+                    </div>
                 </div>
+            {% if forloop.counter|divisibleby:3 %}
             </div>
+            {% endif %}
             {% endfor %}
         </div>
     </div>

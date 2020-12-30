@@ -13,7 +13,7 @@ class Release(models.Model):
     """
     title = models.CharField(max_length=100, unique=True)
     release_date = models.DateField()
-    cover_art = models.URLField(blank=True, null=True)
+    cover_art = models.CharField(blank=True, null=True, max_length=100)
     notes = models.TextField(blank=True, null=True)
     hyperfollow = models.URLField(blank=True, null=True)
     
