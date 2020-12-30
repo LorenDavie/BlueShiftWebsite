@@ -9,7 +9,7 @@
 {% if forloop.counter|add:2|divisibleby:3 %}
 <div class="row {% if forloop.first %}mt-3{% endif %}">
 {% endif %}
-    <div class="col p-0">
+    <div class="col-sm p-0">
         <div class="hovereffect">
             {% if release.cover_art %}
             <img class="cover-art" src="{% static 'releases/'|add:release.cover_art %}">
