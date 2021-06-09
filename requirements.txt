@@ -1,7 +1,7 @@
 arrow==0.14.7
 boto==2.49.0
 dj-database-url==0.5.0
-Django==2.2.7
+Django==2.2.22
 django-storages==1.8
 gevent==1.4.0
 greenlet==0.4.15
